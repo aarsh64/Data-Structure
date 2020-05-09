@@ -55,12 +55,54 @@ public class linkList{
             return true;
     	}
     }
-	   public static void main(String[] args) {
+	
+	public boolean del(int d) {	
+			Node current = head;
+			while(current.next != null) {
+				if(current.next.data ==  d) {
+					current.next = current.next.next;
+					count--;
+				System.out.println("Deleted successfully");
+				return true;
+				}
+				current =  current.next;
+			}	
+		return false;
+	
+	}	   
+public boolean delIndex(int index) {
+	Node current = head;
+	int jump;
+	if(index>count || count <1) {
+		System.out.println("Not valid index value");
+		return false;
+	}
+	else
+	{
+		jump=0;
+		while(jump<index-1) {
+			current=current.next;
+			jump++;
+		}
+		current.next =  current.next.next;
+		System.out.println("index "+index+" value is deleted successfully");
+		return true;
+	}
+}
+	
+	public static void main(String[] args) {
 
 	    	linkList L = new linkList();
 	    	L.add(1);
 	    	L.show();
 	    	L.add(2);
 	    	L.show();
+	    	L.add(3);
+	    	L.show();	
+	    	L.add(4);
+	    	L.show();
+	    	L.del(2);
+	    	L.delIndex(2);
+	    	
 }
 }
