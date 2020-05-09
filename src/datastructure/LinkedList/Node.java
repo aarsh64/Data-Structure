@@ -1,4 +1,4 @@
-package datastructure;
+package datastructure.LinkedList;
 
 public class Node {
 	Node next =null;
