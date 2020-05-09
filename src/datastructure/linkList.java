@@ -11,13 +11,24 @@ public class linkList{
 	count=0;
 	}
 	
+	//can be used to print all the elements present in the linkedList
 	public void show() {
 		Node current =head;
 		while(current.next !=null) {
-			current = current.next;
-			
+			current = current.next;	
+			System.out.println(current.data);
 		}
-		System.out.println(current.data);
+	
+		
+	}
+	public void showIndex(int index) {
+		Node current = head;
+		int jump=0;
+		while( jump <index ) {
+			current = current.next;
+			jump++;
+		}
+		System.out.println("value at index no."+ index + " is "+current.data);
 	}
 	
 	public boolean add(int d) {
@@ -49,6 +60,7 @@ public class linkList{
     			jump++;
     		}
     		end.next = current.next;
+    		System.out.println("end.next value:"+end.next);
     		current.next = end;
     		count++;
     		System.out.println("Success! "+d+" added at index "+index);
@@ -94,15 +106,16 @@ public boolean delIndex(int index) {
 
 	    	linkList L = new linkList();
 	    	L.add(1);
-	    	L.show();
+//	    	L.show();
 	    	L.add(2);
-	    	L.show();
+//	    	L.show();
 	    	L.add(3);
-	    	L.show();	
+//	    	L.show();	
 	    	L.add(4);
+//	    	L.show();
+	  
 	    	L.show();
-	    	L.del(2);
-	    	L.delIndex(2);
+	    	L.showIndex(4);
 	    	
 }
 }
