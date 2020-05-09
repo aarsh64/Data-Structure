@@ -41,6 +41,26 @@ public void printData() {
 		System.out.println("-----------------");
 	}
 }
+
+public linkedList deleteData() {
+	if(isEmpty()) {
+		System.out.println("LinkedList is alredy empty");
+	}
+	
+		linkedList temp = head;
+		if(head == tail) {
+			tail = null;
+		}
+		else {
+			head.next.previous = null;
+			}
+		head = head.next;
+		temp.next =null;
+		length--;
+		return temp;
+
+	
+}
 	
 public static void main(String[] args) {
 	doublyLinkedList L = new doublyLinkedList();
@@ -51,6 +71,11 @@ public static void main(String[] args) {
 	L.addNode(15);
 	L.printData();
 	System.out.println(L.isEmpty());
+	L.printData();
+	
+	L.deleteData();
+	L.printData();
+	
 	
 
 }
