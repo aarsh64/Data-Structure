@@ -99,9 +99,26 @@ public boolean delIndex(int index) {
 		return true;
 	}
 }
-	public void nthIndexValue(int x) {
+
+public void nthIndexValue(int x) {
+	Node temp = head;
+	int leng=0;
+	while(temp!=null) {
+		temp=temp.next;
+		leng++;
+	}
+	if(leng<x){
+		System.out.println("Invalid value");
+	}
+	
+	temp=head;
+	for(int i=1;i<leng-x+1;i++) {
+		temp=temp.next;		
+	}
+	System.out.println("nth value is: "+temp.data);
+}
+public void nthIndexValueOptimised(int x) {
 		Node temp=head,lastNode=null;
-		int counter=0;
 		
 		for(int count=1;count<x;count++) {
 			if(temp!=null) {
@@ -144,7 +161,8 @@ public boolean delIndex(int index) {
 //	    	L.show();
 	    	L.show();
 	    	L.showIndex(4);
-	    	L.nthIndexValue(2);
+	    	L.nthIndexValueOptimised(4);
+	    	L.nthIndexValue(4);
 	    	L.lastNodeValue();
 	
 }

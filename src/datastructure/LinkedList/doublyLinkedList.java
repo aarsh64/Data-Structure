@@ -64,6 +64,7 @@ public linkedList deleteData() {
 
 	
 }
+
 public void lastNode() {
 	if(isEmpty()) {
 		System.out.println("No node in LinkedList");
@@ -76,8 +77,49 @@ public void lastNode() {
 		System.out.println("\n last node value:"+temp.data);
 	}
 }
-
+public void nthNodeValue(int a) {
 	
+	linkedList temp = head;
+	int leng=0;
+	while(temp!=null) {
+		temp=temp.next;
+		leng++;
+	}
+	if(leng<a){
+		System.out.println("Invalid value");
+	}
+	
+	temp=head;
+	for(int i=1;i<leng-a+1;i++) {
+		temp=temp.next;		
+	}
+	System.out.println("nth Node value:"+temp.data);
+
+}
+
+
+public void nthNodeValueOptimised(int b) {
+linkedList temp=head,lastNode=null;
+for(int count=1;count<b;count++) {
+	if(temp !=null) {
+	temp=temp.next;
+	}
+}
+	while(temp!=null) {
+		if(lastNode==null) {
+			lastNode=head;
+		}
+		else
+		{
+			lastNode=lastNode.next;
+		}
+	temp=temp.next;
+	}
+	if(lastNode!=null) {
+		System.out.println("nthIndex value: "+lastNode.data);
+	}
+
+}
 public static void main(String[] args) {
 	doublyLinkedList L = new doublyLinkedList();
 	L.addNode(5);
@@ -91,47 +133,7 @@ public static void main(String[] args) {
 
 }
 
-public void nthNodeValue(int a) {
-		
-		linkedList temp = head;
-		int leng=0;
-		while(temp!=null) {
-			temp=temp.next;
-			leng++;
-		}
-		if(leng<a){
-			System.out.println("Invalid value");
-		}
-		
-		temp=head;
-		for(int i=1;i<leng-a+1;i++) {
-			temp=temp.next;		
-		}
-		System.out.println("nth Node value:"+temp.data);
-	
-}
-public void nthNodeValueOptimised(int b) {
-	linkedList temp=head,lastNode=null;
-	for(int count=1;count<b;count++) {
-		if(temp !=null) {
-		temp=temp.next;
-		}
-	}
-		while(temp!=null) {
-			if(lastNode==null) {
-				lastNode=head;
-			}
-			else
-			{
-				lastNode=lastNode.next;
-			}
-		temp=temp.next;
-		}
-		if(lastNode!=null) {
-			System.out.println("nthIndex value: "+lastNode.data);
-		}
 	}
 	
 
 
-}
