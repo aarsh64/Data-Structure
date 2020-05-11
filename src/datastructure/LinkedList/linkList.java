@@ -121,6 +121,16 @@ public boolean delIndex(int index) {
 			System.out.println("nthIndex value from the last:"+lastNode.data);
 		}
 	}
+	public void lastNodeValue() {
+		Node temp = head;
+		while(temp!=null) {
+			temp=temp.next;
+			if(temp.next==null) {
+			System.out.println("value of last node in LinkedList is :" + temp.data);
+			return;
+			}
+		}
+	}
 	public static void main(String[] args) {
 
 	    	linkList L = new linkList();
@@ -132,10 +142,10 @@ public boolean delIndex(int index) {
 //	    	L.show();	
 	    	L.add(4);
 //	    	L.show();
-	  
 	    	L.show();
 	    	L.showIndex(4);
 	    	L.nthIndexValue(2);
+	    	L.lastNodeValue();
 	
 }
 	

@@ -133,14 +133,5 @@ public void nthNodeValueOptimised(int b) {
 	}
 	
 
-//public void nthNodeRecursive(doublyLinkedList p,int x) {
-//	int count=0;
-//	if(p!=null) {
-////		this.nthNodeRecursive(p.head.next,x);
-//		count++;
-//	}
-//	if(count==x) {
-////		System.out.println("nth Node value: " +p.head.data);
-//	}
-//}
+
 }
