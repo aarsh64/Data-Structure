@@ -85,6 +85,7 @@ public static void main(String[] args) {
 	L.printData();
 	L.lastNode();
 	L.nthNodeValue(2);
+	L.nthNodeValueOptimised(2);
     
 
 }
@@ -109,4 +110,26 @@ public void nthNodeValue(int a) {
 		}
 	
 }
+public void nthNodeValueOptimised(int b) {
+	linkedList temp=head,lastNode=null;
+	for(int count=1;count<b;count++) {
+		if(temp !=null) {
+		temp=temp.next;
+		}
+	}
+		while(temp!=null) {
+			if(lastNode==null) {
+				lastNode=head;
+			}
+			else
+			{
+				lastNode=lastNode.next;
+			}
+		temp=temp.next;
+		}
+		if(lastNode!=null) {
+			System.out.println("nthIndex value: "+lastNode.data);
+		}
+	}
+	
 }
