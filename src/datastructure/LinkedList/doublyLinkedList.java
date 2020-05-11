@@ -71,7 +71,7 @@ public void lastNode() {
 		while(temp.next!=null) {
 			temp= temp.next;
 		}
-		System.out.println("\nlast node value:"+temp.data);
+		System.out.println("\n last node value:"+temp.data);
 	}
 }
 
@@ -86,7 +86,7 @@ public static void main(String[] args) {
 	L.lastNode();
 	L.nthNodeValue(2);
 	L.nthNodeValueOptimised(2);
-    
+//    nthNodeRecursive(L,2);
 
 }
 
@@ -104,10 +104,9 @@ public void nthNodeValue(int a) {
 		
 		temp=head;
 		for(int i=1;i<leng-a+1;i++) {
-			temp=temp.next;
-			
-			System.out.println("nth Node value:"+temp.data);
+			temp=temp.next;		
 		}
+		System.out.println("nth Node value:"+temp.data);
 	
 }
 public void nthNodeValueOptimised(int b) {
@@ -132,4 +131,15 @@ public void nthNodeValueOptimised(int b) {
 		}
 	}
 	
+
+//public void nthNodeRecursive(doublyLinkedList p,int x) {
+//	int count=0;
+//	if(p!=null) {
+////		this.nthNodeRecursive(p.head.next,x);
+//		count++;
+//	}
+//	if(count==x) {
+////		System.out.println("nth Node value: " +p.head.data);
+//	}
+//}
 }
