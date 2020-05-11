@@ -74,6 +74,24 @@ public void lastNode() {
 		System.out.println("\nlast node value:"+temp.data);
 	}
 }
+public void indexValue(int a) {
+	if(a > length) {
+		System.out.println("Invalid index number");
+	}
+	else {
+		linkedList temp =head;
+		int count=0;
+		while(temp.next != null) {
+			temp=temp.next;
+			if(count==a) {
+				System.out.println("Value at"+a+" is :"+temp.data);
+			}
+				count++;
+		}
+	}
+		
+		}
+
 	
 public static void main(String[] args) {
 	doublyLinkedList L = new doublyLinkedList();
@@ -82,10 +100,9 @@ public static void main(String[] args) {
 	L.addNode(10);
 	L.addNode(15);
 	L.printData();
-	L.deleteData();
 	L.printData();
 	L.lastNode();
-	
+	L.indexValue(3);
 
 }
 }
