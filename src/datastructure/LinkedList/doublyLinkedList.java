@@ -34,7 +34,7 @@ public void printData() {
 	{
 		linkedList temp = head;
 		while(temp != null) {
-			System.out.print("---> "+ temp.data);
+			System.out.print(" ---> "+ temp.data);
 			temp= temp.next;
 		}
 		
@@ -62,6 +62,18 @@ public linkedList deleteData() {
 
 	
 }
+public void lastNode() {
+	if(isEmpty()) {
+		System.out.println("No node in LinkedList");
+	}
+	else {
+		linkedList temp = head;
+		while(temp.next!=null) {
+			temp= temp.next;
+		}
+		System.out.println("\nlast node value:"+temp.data);
+	}
+}
 	
 public static void main(String[] args) {
 	doublyLinkedList L = new doublyLinkedList();
@@ -70,9 +82,9 @@ public static void main(String[] args) {
 	L.addNode(10);
 	L.addNode(15);
 	L.printData();
-	
 	L.deleteData();
-	
+	L.printData();
+	L.lastNode();
 	
 
 }
