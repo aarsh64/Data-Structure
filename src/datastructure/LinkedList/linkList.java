@@ -115,7 +115,8 @@ public boolean delIndex(int index) {
 //	    	L.show();
 	  
 	    	L.show();
-	    	L.showIndex(4);
-	    	
+	    	L.showIndex(4);	    	
 }
+	
+	
 }

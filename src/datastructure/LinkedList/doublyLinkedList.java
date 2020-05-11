@@ -74,23 +74,6 @@ public void lastNode() {
 		System.out.println("\nlast node value:"+temp.data);
 	}
 }
-public void indexValue(int a) {
-	if(a > length) {
-		System.out.println("Invalid index number");
-	}
-	else {
-		linkedList temp =head;
-		int count=0;
-		while(temp.next != null) {
-			temp=temp.next;
-			if(count==a) {
-				System.out.println("Value at"+a+" is :"+temp.data);
-			}
-				count++;
-		}
-	}
-		
-		}
 
 	
 public static void main(String[] args) {
@@ -100,9 +83,30 @@ public static void main(String[] args) {
 	L.addNode(10);
 	L.addNode(15);
 	L.printData();
-	L.printData();
 	L.lastNode();
-	L.indexValue(3);
+	L.nthNodeValue(2);
+    
 
+}
+
+public void nthNodeValue(int a) {
+		
+		linkedList temp = head;
+		int leng=0;
+		while(temp!=null) {
+			temp=temp.next;
+			leng++;
+		}
+		if(leng<a){
+			System.out.println("Invalid value");
+		}
+		
+		temp=head;
+		for(int i=1;i<leng-a+1;i++) {
+			temp=temp.next;
+			
+			System.out.println("nth Node value:"+temp.data);
+		}
+	
 }
 }
