@@ -1,5 +1,7 @@
 package datastructure.LinkedList;
 
+import java.util.LinkedList;
+
 public class doublyLinkedList {
 	public linkedList head;
 	public linkedList tail;
@@ -78,7 +80,6 @@ public void lastNode() {
 	
 public static void main(String[] args) {
 	doublyLinkedList L = new doublyLinkedList();
-	
 	L.addNode(5);
 	L.addNode(10);
 	L.addNode(15);

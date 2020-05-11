@@ -1,7 +1,5 @@
 package datastructure.LinkedList;
 
-
-
 public class linkList{
 	public Node head;
 	public int count;
@@ -101,7 +99,28 @@ public boolean delIndex(int index) {
 		return true;
 	}
 }
-	
+	public void nthIndexValue(int x) {
+		Node temp=head,lastNode=null;
+		int counter=0;
+		
+		for(int count=1;count<x;count++) {
+			if(temp!=null) {
+				temp=temp.next;
+			}
+		}
+		while(temp!=null) {
+			if(lastNode==null) {
+				lastNode=head;
+			}
+			else
+				lastNode=lastNode.next;
+			temp=temp.next;
+		}
+
+		if(lastNode!=null) {
+			System.out.println("nthIndex value from the last:"+lastNode.data);
+		}
+	}
 	public static void main(String[] args) {
 
 	    	linkList L = new linkList();
@@ -115,8 +134,10 @@ public boolean delIndex(int index) {
 //	    	L.show();
 	  
 	    	L.show();
-	    	L.showIndex(4);	    	
+	    	L.showIndex(4);
+	    	L.nthIndexValue(2);
+	
 }
 	
-	
+
 }
