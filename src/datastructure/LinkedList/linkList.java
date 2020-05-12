@@ -163,7 +163,7 @@ public void nthIndexValueOptimised(int x) {
 	
 	public boolean loopFinder() {
 		Node node1=head,node2=head;
-		while(node1!=null && node2!= null && node2.next!=null) {
+		while(node1!=null && node1.next!=null) {
 			node1=node1.next.next;
 			node2=node2.next;
 			if(node1==node2) {
