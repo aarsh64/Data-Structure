@@ -46,6 +46,7 @@ public class linkList{
     	Node end = new Node(d);
     	Node current = head;
     	int jump;
+    	
 
     	if(index>count || index<1){
     		System.out.println("Add Failed: index out of bounds of size of linked list!!");
@@ -159,6 +160,20 @@ public void nthIndexValueOptimised(int x) {
 		return (temp == head);
 		}
 	
+	
+	public boolean loopFinder() {
+		Node node1=head,node2=head;
+		while(node1!=null && node2!= null && node2.next!=null) {
+			node1=node1.next.next;
+			node2=node2.next;
+			if(node1==node2) {
+					return true;
+			}
+			}
+		return false;
+
+	}
+	
 	public static void main(String[] args) {
 
 	    	linkList L = new linkList();
@@ -167,15 +182,17 @@ public void nthIndexValueOptimised(int x) {
 	    	L.add(2);
 //	    	L.show();
 	    	L.add(3);
-//	    	L.show();	
+	    	//	    	L.show();	
 	    	L.add(4);
+	    	L.add(1);
 //	    	L.show();
 	    	L.show();
 	    	L.showIndex(4);
 	    	L.nthIndexValueOptimised(4);
 	    	L.nthIndexValue(4);
 	    	L.lastNodeValue();
-	    System.out.println(L.isCircular()?"Yes":"No");
+	    	System.out.println("Loops value:"+L.loopFinder());
+	
 }
 	
 
