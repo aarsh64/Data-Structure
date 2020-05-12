@@ -81,7 +81,10 @@ public class linkList{
 		return false;
 	
 	}	   
-public boolean delIndex(int index) {
+	
+//To delete the specific node from the LinkedList..
+
+	public boolean delIndex(int index) {
 	Node current = head;
 	int jump;
 	if(index>count || count <1) {
@@ -101,6 +104,8 @@ public boolean delIndex(int index) {
 	}
 }
 
+// Returns the value of nTh last from the LinkedList... 
+
 public void nthIndexValue(int x) {
 	Node temp = head;
 	int leng=0;
@@ -118,6 +123,9 @@ public void nthIndexValue(int x) {
 	}
 	System.out.println("nth value is: "+temp.data);
 }
+
+// it reuturns the nth last node value...
+
 public void nthIndexValueOptimised(int x) {
 		Node temp=head,lastNode=null;
 		
@@ -139,6 +147,7 @@ public void nthIndexValueOptimised(int x) {
 			System.out.println("nthIndex value from the last:"+lastNode.data);
 		}
 	}
+//Returns the last node value...
 	public void lastNodeValue() {
 		Node temp = head;
 		while(temp!=null) {
@@ -149,17 +158,8 @@ public void nthIndexValueOptimised(int x) {
 			}
 		}
 	}
-	public boolean isCircular() {
-		if(head==null) {
-			return true;
-		}
-		Node temp=head;
-		while(temp!=null && temp!=head) {
-			temp=temp.next;
-				}
-		return (temp == head);
-		}
 	
+//it checks whether the Linkedlist is null terminated or not...
 	
 	public boolean loopFinder() {
 		Node node1=head,node2=head;
@@ -178,14 +178,10 @@ public void nthIndexValueOptimised(int x) {
 
 	    	linkList L = new linkList();
 	    	L.add(1);
-//	    	L.show();
 	    	L.add(2);
-//	    	L.show();
 	    	L.add(3);
-	    	//	    	L.show();	
 	    	L.add(4);
 	    	L.add(1);
-//	    	L.show();
 	    	L.show();
 	    	L.showIndex(4);
 	    	L.nthIndexValueOptimised(4);
