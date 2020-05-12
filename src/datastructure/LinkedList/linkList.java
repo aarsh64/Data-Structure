@@ -125,7 +125,10 @@ public void nthIndexValue(int x) {
 }
 
 // it reuturns the nth last node value...
+public void nthIndexValueRec(linkedList p,int p2) {
+	
 
+}
 public void nthIndexValueOptimised(int x) {
 		Node temp=head,lastNode=null;
 		
@@ -174,6 +177,31 @@ public void nthIndexValueOptimised(int x) {
 
 	}
 	
+//it checks whether the list has loop or not and if
+	//there is a loop it will return the start node of the loop
+	public void loopNodeFinder() {
+		Node node1=head,node2=head;
+		boolean loop=false;
+		while(node1!=null && node1.next!=null) {
+			node1=node1.next.next;
+			node2=node2.next;
+			if(node1==node2) {
+					loop=true;
+					break;
+			}
+			}
+	if(loop) {
+		node1=head;
+		while(node1!=node2) {
+			node1=node1.next;
+			node2=node2.next;
+		}
+		System.out.println("The loop start from"+node1.data);
+		return;
+	}
+	return;
+}
+	
 	public static void main(String[] args) {
 
 	    	linkList L = new linkList();
@@ -185,10 +213,12 @@ public void nthIndexValueOptimised(int x) {
 	    	L.show();
 	    	L.showIndex(4);
 	    	L.nthIndexValueOptimised(4);
-	    	L.nthIndexValue(4);
+//	    	L.nthIndexValueRec(L.head,4);
+	    	
 	    	L.lastNodeValue();
 	    	System.out.println("Loops value:"+L.loopFinder());
-	
+	    	L.loopNodeFinder();
+		    
 }
 	
 
