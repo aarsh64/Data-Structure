@@ -160,7 +160,7 @@ public void nthIndexValueOptimised(int x) {
 	}
 	
 //it checks whether the Linkedlist is null terminated or not...
-	
+	//Floyd approach...
 	public boolean loopFinder() {
 		Node node1=head,node2=head;
 		while(node1!=null && node1.next!=null) {
