@@ -148,6 +148,17 @@ public void nthIndexValueOptimised(int x) {
 			}
 		}
 	}
+	public boolean isCircular() {
+		if(head==null) {
+			return true;
+		}
+		Node temp=head;
+		while(temp!=null && temp!=head) {
+			temp=temp.next;
+				}
+		return (temp == head);
+		}
+	
 	public static void main(String[] args) {
 
 	    	linkList L = new linkList();
@@ -164,7 +175,7 @@ public void nthIndexValueOptimised(int x) {
 	    	L.nthIndexValueOptimised(4);
 	    	L.nthIndexValue(4);
 	    	L.lastNodeValue();
-	
+	    System.out.println(L.isCircular()?"Yes":"No");
 }
 	
 
