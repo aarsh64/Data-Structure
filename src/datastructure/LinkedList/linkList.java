@@ -9,25 +9,6 @@ public class linkList{
 	count=0;
 	}
 	
-	//can be used to print all the elements present in the linkedList
-	public void show() {
-		Node current =head;
-		while(current.next !=null) {
-			current = current.next;	
-			System.out.println(current.data);
-		}
-	
-		
-	}
-	public void showIndex(int index) {
-		Node current = head;
-		int jump=0;
-		while( jump <index ) {
-			current = current.next;
-			jump++;
-		}
-		System.out.println("value at index no."+ index + " is "+current.data);
-	}
 	
 	public boolean add(int d) {
 		Node end = new Node(d);
@@ -66,6 +47,26 @@ public class linkList{
             return true;
     	}
     }
+	
+	//can be used to print all the elements present in the linkedList
+	public void show() {
+		Node current =head;
+		while(current.next !=null) {
+			current = current.next;	
+			System.out.println(current.data);
+		}
+	
+		
+	}
+	public void showIndex(int index) {
+		Node current = head;
+		int jump=0;
+		while( jump <index ) {
+			current = current.next;
+			jump++;
+		}
+		System.out.println("value at index no."+ index + " is "+current.data);
+	}
 	
 	public boolean del(int d) {	
 			Node current = head;
@@ -201,15 +202,29 @@ public void nthIndexValueOptimised(int x) {
 	}
 	return;
 }
-	
-	public static void main(String[] args) {
 
+	// To reverse the LinkedList
+	public void reverseLinkedList() {
+		Node current = head;
+		Node  prev =null;
+		while(current!=null) {
+		Node nextNode=current.next;
+		current.next = prev;
+		prev=current;
+		current=nextNode;
+		}
+		while(prev!=null) {
+		System.out.println("----->"+prev.data);
+		prev=prev.next;
+	}
+}
+	public static void main(String[] args) {
+	
 	    	linkList L = new linkList();
 	    	L.add(1);
 	    	L.add(2);
 	    	L.add(3);
 	    	L.add(4);
-	    	L.add(1);
 	    	L.show();
 	    	L.showIndex(4);
 	    	L.nthIndexValueOptimised(4);
@@ -218,7 +233,8 @@ public void nthIndexValueOptimised(int x) {
 	    	L.lastNodeValue();
 	    	System.out.println("Loops value:"+L.loopFinder());
 	    	L.loopNodeFinder();
-		    
+	    	L.reverseLinkedList();
+	 	    
 }
 	
 
