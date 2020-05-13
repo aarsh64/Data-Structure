@@ -213,8 +213,9 @@ public void nthIndexValueOptimised(int x) {
 		prev=current;
 		current=nextNode;
 		}
+		System.out.println("\nLinkedList in reverse Order:\n");
 		while(prev!=null) {
-		System.out.println("LinkedList in reverse Order:\n"+prev.data);
+		System.out.println(prev.data);
 		prev=prev.next;
 	}
 }
