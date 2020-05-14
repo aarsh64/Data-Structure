@@ -238,6 +238,18 @@ public void nthIndexValueOptimised(int x) {
 		reverseLinkedListRecursive(p.next);
 		System.out.println("\n"+p.data);
 	}
+	public void evenLength() {
+		Node node1=head;
+		Node node2=head;
+		while(node1!=null && node1.next!=null) {
+			node1=node1.next.next;
+		}
+		if(node1==null) {
+			System.out.println("Odd length");
+		}
+		else
+			System.out.println("Even length");
+	}
 	public static void main(String[] args) {
 	
 	    	linkList L = new linkList();
@@ -245,7 +257,8 @@ public void nthIndexValueOptimised(int x) {
 	    	L.add(2);
 	    	L.add(3);
 	    	L.add(4);
-	    	L.show();
+	    	
+	    	//for checking the reverLinkedListRecursive
 	    	M.add(1);
 	    	M.add(2);
 	    	M.add(3);
@@ -259,6 +272,8 @@ public void nthIndexValueOptimised(int x) {
 	    	L.loopNodeFinder();
 //	    	L.reverseLinkedList();
 	    	reverseLinkedListRecursive(M.head);
+	    	L.evenLength();
+	    	M.evenLength();
 	    	
 	 	    
 }
