@@ -1,7 +1,7 @@
 package datastructure.LinkedList;
 
 public class linkList{
-	public datastructure.LinkedList.linkDemo.Node head;
+	public Node head;
 	public int count;
 	
 	public linkList() {
