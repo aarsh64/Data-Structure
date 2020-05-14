@@ -232,13 +232,24 @@ public void nthIndexValueOptimised(int x) {
 		System.out.println("\nMiddle Element:"+node2.data);
 	}
 }
+	public static void reverseLinkedListRecursive(Node p) {
+		if(p==null)
+			return;
+		reverseLinkedListRecursive(p.next);
+		System.out.println("\n"+p.data);
+	}
 	public static void main(String[] args) {
 	
 	    	linkList L = new linkList();
+	    	linkList M= new linkList();
 	    	L.add(2);
 	    	L.add(3);
 	    	L.add(4);
 	    	L.show();
+	    	M.add(1);
+	    	M.add(2);
+	    	M.add(3);
+	    	M.add(4);
 	    	L.nthIndexValueOptimised(4);
 //	    	L.nthIndexValueRec(L,4);
 	    	
@@ -246,7 +257,8 @@ public void nthIndexValueOptimised(int x) {
 	    	L.middleElement();
 	    	System.out.println("Loops valueloopFinder()");
 	    	L.loopNodeFinder();
-	    	L.reverseLinkedList();
+//	    	L.reverseLinkedList();
+	    	reverseLinkedListRecursive(M.head);
 	    	
 	 	    
 }
