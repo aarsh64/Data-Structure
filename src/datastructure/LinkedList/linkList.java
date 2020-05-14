@@ -218,29 +218,36 @@ public void nthIndexValueOptimised(int x) {
 		System.out.println(prev.data);
 		prev=prev.next;
 	}
+					
+		}
+	
+	public void middleElement() {
+		Node node1=head;
+		Node node2=head;
+		if(head!=null) {
+		while(node1!=null && node1.next!=null) {
+			node1=node1.next.next;
+			node2=node2.next;
+		}
+		System.out.println("\nMiddle Element:"+node2.data);
+	}
 }
 	public static void main(String[] args) {
 	
 	    	linkList L = new linkList();
-	    	linkList M = new linkList();
-	    	Node x1,x2;
 	    	L.add(2);
 	    	L.add(3);
 	    	L.add(4);
-	    	M.add(0);
-	    	M.add(1);
-	    	M.add(2);
-	    	M.add(3);
-	    	M.add(4);
 	    	L.show();
 	    	L.nthIndexValueOptimised(4);
 //	    	L.nthIndexValueRec(L,4);
 	    	
 	    	L.lastNodeValue();
+	    	L.middleElement();
 	    	System.out.println("Loops valueloopFinder()");
 	    	L.loopNodeFinder();
 	    	L.reverseLinkedList();
-			
+	    	
 	 	    
 }
 
