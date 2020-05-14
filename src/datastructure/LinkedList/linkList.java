@@ -1,7 +1,7 @@
 package datastructure.LinkedList;
 
 public class linkList{
-	public Node head;
+	public datastructure.LinkedList.linkDemo.Node head;
 	public int count;
 	
 	public linkList() {
@@ -222,21 +222,26 @@ public void nthIndexValueOptimised(int x) {
 	public static void main(String[] args) {
 	
 	    	linkList L = new linkList();
-	    	L.add(1);
+	    	linkList M = new linkList();
+	    	Node x1,x2;
 	    	L.add(2);
 	    	L.add(3);
 	    	L.add(4);
+	    	M.add(0);
+	    	M.add(1);
+	    	M.add(2);
+	    	M.add(3);
+	    	M.add(4);
 	    	L.show();
-	    	L.showIndex(4);
 	    	L.nthIndexValueOptimised(4);
-//	    	L.nthIndexValueRec(L.head,4);
+//	    	L.nthIndexValueRec(L,4);
 	    	
 	    	L.lastNodeValue();
-	    	System.out.println("Loops value:"+L.loopFinder());
+	    	System.out.println("Loops valueloopFinder()");
 	    	L.loopNodeFinder();
 	    	L.reverseLinkedList();
+			
 	 	    
 }
-	
 
 }

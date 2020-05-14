@@ -1,6 +1,5 @@
 package datastructure.LinkedList;
 
-import java.util.LinkedList;
 
 public class doublyLinkedList {
 	public linkedList head;
