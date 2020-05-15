@@ -250,34 +250,54 @@ public void nthIndexValueOptimised(int x) {
 		else
 			System.out.println("Even length");
 	}
-//	public static Node mergeLinkedList(Node l1,Node l2) {
-//		if(l1==null) {
-//			System.out.println(l2.data);
-//		}
-//		if(l2==null) {
-//			System.out.println(l1.data);
-//		}
-//		Node newNode = new Node(0);
-//		if(l1.data<=l2.data) {
-//			newNode.next = mergeLinkedList(l1.next,l2);
-//		}
-//	}
+	public static void mergeLinkedList(Node l1,Node l2) {
+		Node mergerNode = new Node(0);
+		Node tail = mergerNode;
+		while(true) {
+			if(l1 ==null) {
+				tail.next=l2;
+				break;
+			}
+			if(l2==null) {
+				tail.next = l1;
+				break;
+			}
+			if(l1.data <= l2.data) {
+				tail.next = l1;
+				l1=l1.next;
+			}else
+			{
+				tail.next = l2;
+				l2=l2.next;
+			}
+			tail=tail.next;
+		}
+		
+	while(mergerNode!=null) {
+		System.out.println(mergerNode.data);
+		mergerNode=mergerNode.next;
+		}
+
+	}
+			
 	public static void main(String[] args) {
 	
 	    	linkList L = new linkList();
 	    	linkList M= new linkList();
+	    	L.add(1);
 	    	L.add(2);
 	    	L.add(3);
-	    	L.add(4);
 	    	
 	    	//for checking the reverLinkedListRecursive
-	    	M.add(1);
-	    	M.add(2);
-	    	M.add(3);
 	    	M.add(4);
+	    	M.add(5);
+	    	M.add(6);
+	    	M.add(7);
 	    	L.nthIndexValueOptimised(4);
 //	    	L.nthIndexValueRec(L,4);
-	    	
+	    	System.out.println("----------------");
+	    	mergeLinkedList(M.head,L.head);
+	    	System.out.println("----------------");
 	    	L.lastNodeValue();
 	    	L.middleElement();
 	    	System.out.println("Loops valueloopFinder()");
@@ -286,6 +306,7 @@ public void nthIndexValueOptimised(int x) {
 	    	reverseLinkedListRecursive(M.head);
 	    	L.evenLength();
 	    	M.evenLength();
+	    	
 	    	
 	 	    
 }
