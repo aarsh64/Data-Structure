@@ -250,6 +250,18 @@ public void nthIndexValueOptimised(int x) {
 		else
 			System.out.println("Even length");
 	}
+//	public static Node mergeLinkedList(Node l1,Node l2) {
+//		if(l1==null) {
+//			System.out.println(l2.data);
+//		}
+//		if(l2==null) {
+//			System.out.println(l1.data);
+//		}
+//		Node newNode = new Node(0);
+//		if(l1.data<=l2.data) {
+//			newNode.next = mergeLinkedList(l1.next,l2);
+//		}
+//	}
 	public static void main(String[] args) {
 	
 	    	linkList L = new linkList();
