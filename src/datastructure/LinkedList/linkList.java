@@ -272,13 +272,33 @@ public void nthIndexValueOptimised(int x) {
 			}
 			tail=tail.next;
 		}
-		
+		System.out.println("!--------------------------!");	
 	while(mergerNode!=null) {
 		System.out.println(mergerNode.data);
 		mergerNode=mergerNode.next;
 		}
 
 	}
+public static void pairReverse(Node l) {
+	System.out.println("Data:"+l.data);
+	Node temp1=null;
+	Node temp2=null;
+	while(l!=null && l.next!=null) {
+		if(temp1!=null) {
+			temp1.next.next= l.next;
+		}
+		temp1=l.next;
+		l.next=l.next.next;
+		temp1.next=l;
+		if(temp2!=null) {
+			temp2=temp1;
+			l=l.next;
+		}
+	}
+	while(temp2!=null) {
+		System.out.println(temp2.data);
+	}
+}
 			
 	public static void main(String[] args) {
 	
@@ -293,17 +313,22 @@ public void nthIndexValueOptimised(int x) {
 	    	M.add(5);
 	    	M.add(6);
 	    	M.add(7);
-	    	L.nthIndexValueOptimised(4);
-//	    	L.nthIndexValueRec(L,4);
-	    	System.out.println("----------------");
-	    	mergeLinkedList(M.head,L.head);
-	    	System.out.println("----------------");
+	    	System.out.println("Data:"+M.head.data);
+	    	pairReverse(M.head);
+	    	L.nthIndexValueOptimised(2);
 	    	L.lastNodeValue();
 	    	L.middleElement();
 	    	System.out.println("Loops valueloopFinder()");
 	    	L.loopNodeFinder();
+//	    	L.nthIndexValueRec(L,4);
+	    	System.out.println("----------------");
+	    	mergeLinkedList(M.head,L.head);
+	    	System.out.println("----------------");
+	    	
+	    
 //	    	L.reverseLinkedList();
 	    	reverseLinkedListRecursive(M.head);
+	    	
 	    	L.evenLength();
 	    	M.evenLength();
 	    	
