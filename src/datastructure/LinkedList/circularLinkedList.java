@@ -45,6 +45,31 @@ public class circularLinkedList {
 		return l;
 	}
 	
+	static Node addAfter(Node l,int data, int item) {
+		if( l == null) {
+			return null;
+		}
+		Node temp,p;
+		p = l.next;
+		do {
+			if(p.data == item) {
+				temp = new Node();
+				temp.data = data;
+				temp.next = p.next;
+				p.next = temp;
+				if(p == l) {
+					l = temp;
+				return l;
+				}
+			}
+			p = p.next;	
+		}
+			while(p!=l.next);
+			
+		System.out.println(item+"is not present.");
+		
+		return l;
+	}
 	static void traverse(Node l) {
 		Node p;
 		
@@ -63,6 +88,7 @@ public class circularLinkedList {
 	last = addEmpty(last,5);
 	last = addBegin(last,1);
 	last = addEnd(last,3);
+	last = addAfter(last,7,3);
 	traverse(last);
 }
 
