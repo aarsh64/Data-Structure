@@ -5,7 +5,7 @@ public class linkList{
 	public int count;
 	
 	public linkList() {
-	head = new Node(0);
+	head = new Node(1);
 	count=0;
 	}
 	
@@ -19,7 +19,6 @@ public class linkList{
 		}
 		current.next = end;
 		count++;
-		System.out.println("appended to the tail");
 		return true;
 	}
 	
@@ -148,7 +147,7 @@ public void nthIndexValueOptimised(int x) {
 		}
 
 		if(lastNode!=null) {
-			System.out.println("nthIndex value from the last:"+lastNode.data);
+			System.out.println(x+" Index value from the last:"+lastNode.data);
 		}
 	}
 //Returns the last node value...
@@ -157,7 +156,7 @@ public void nthIndexValueOptimised(int x) {
 		while(temp!=null) {
 			temp=temp.next;
 			if(temp.next==null) {
-			System.out.println("value of last node in LinkedList is :" + temp.data);
+			System.out.println("value of last node in LinkedList is : " + temp.data);
 			return;
 			}
 		}
@@ -229,14 +228,14 @@ public void nthIndexValueOptimised(int x) {
 			node1=node1.next.next;
 			node2=node2.next;
 		}
-		System.out.println("\nMiddle Element:"+node2.data);
+		System.out.println("\nMiddle Element: "+node2.data);
 	}
 }
 	public static void reverseLinkedListRecursive(Node p) {
-		if(p==null)
+			if(p==null)
 			return;
 		reverseLinkedListRecursive(p.next);
-		System.out.println("\n"+p.data);
+		System.out.println(p.data);
 	}
 	public void evenLength() {
 		Node node1=head;
@@ -272,7 +271,6 @@ public void nthIndexValueOptimised(int x) {
 			}
 			tail=tail.next;
 		}
-		System.out.println("!--------------------------!");	
 	while(mergerNode!=null) {
 		System.out.println(mergerNode.data);
 		mergerNode=mergerNode.next;
@@ -280,7 +278,7 @@ public void nthIndexValueOptimised(int x) {
 
 	}
 public static void pairReverse(Node l) {
-	System.out.println("Data:"+l.data);
+	System.out.println("Reversed:");
 	Node temp1=null;
 	Node temp2=null;
 	while(l!=null && l.next!=null) {
@@ -290,15 +288,80 @@ public static void pairReverse(Node l) {
 		temp1=l.next;
 		l.next=l.next.next;
 		temp1.next=l;
-		if(temp2!=null) {
+		if(temp2==null) {
 			temp2=temp1;
-			l=l.next;
 		}
+			l=l.next;
 	}
-	while(temp2!=null) {
+	while(temp2.next !=null) {
+		temp2 = temp2.next;
 		System.out.println(temp2.data);
 	}
+
 }
+public static boolean palingdrom(Node l) {
+    if(l == null || l.next == null)
+        return true;
+    Node fast = l.next;
+    Node slow = l;
+    
+    // find out mid element of list
+    while (fast != null && fast.next != null) {
+        fast = fast.next.next;
+        slow = slow.next;
+    }
+    fast = slow.next;
+    slow.next = null;
+    
+    // Now reverse the fast list
+    Node reverse = null;
+    Node prev = null;
+    while (fast != null) {
+        prev = fast;
+        fast = fast.next;
+        prev.next = reverse;
+        reverse = prev;     
+    }
+    
+    //Now compare reverse list and head list
+    while(l != null && reverse != null) {
+        if(l.data != reverse.data){
+            return false;
+        }
+        l = l.next;
+        reverse = reverse.next;
+    }
+    return true;
+}	
+
+
+public static Node reverseKNodes(Node head, int k) { 
+    Node current = head; 
+    Node preTail = null;
+    Node preCur = head;
+  
+    
+    while(current!=null) {
+    	int count = k;
+    	Node tail = null;
+    	while(current!=null && count >0) {
+    		Node next =current.next;
+    		current.next= tail;
+    		tail=current;
+    		current = next;
+    		count--;
+    	}
+    	if(preTail != null) {
+    		preTail.next=tail;
+    	}else {
+    		head = tail;
+    	}
+    	preTail = preCur;
+    	preCur = current;
+    }
+  return head;
+} 
+  
 			
 	public static void main(String[] args) {
 	
@@ -306,34 +369,37 @@ public static void pairReverse(Node l) {
 	    	linkList M= new linkList();
 	    	L.add(1);
 	    	L.add(2);
-	    	L.add(3);
+	    	L.add(2);
+	    	L.add(1);
+	    	L.add(1);
+	    	L.add(2);
+	    	L.add(2);
+	    	L.add(1);
 	    	
 	    	//for checking the reverLinkedListRecursive
-	    	M.add(4);
-	    	M.add(5);
-	    	M.add(6);
-	    	M.add(7);
-	    	System.out.println("Data:"+M.head.data);
-	    	pairReverse(M.head);
-	    	L.nthIndexValueOptimised(2);
+	    	M.add(1);
+	    	M.add(2);
+	    	M.add(3);
+	     	M.add(4);
+//	     	M.show();
+	       M.head = reverseKNodes(M.head,3); 
+	       M.show();
+	      
+	     pairReverse(M.head);
+	     	L.nthIndexValueOptimised(2);
 	    	L.lastNodeValue();
 	    	L.middleElement();
 	    	System.out.println("Loops valueloopFinder()");
 	    	L.loopNodeFinder();
-//	    	L.nthIndexValueRec(L,4);
-	    	System.out.println("----------------");
+	    	System.out.println("-------Lists Merged---------");
 	    	mergeLinkedList(M.head,L.head);
-	    	System.out.println("----------------");
-	    	
-	    
-//	    	L.reverseLinkedList();
+	    	System.out.println("-----------------------------");
+	    	    
 	    	reverseLinkedListRecursive(M.head);
 	    	
 	    	L.evenLength();
 	    	M.evenLength();
 	    	
-	    	
-	 	    
 }
 
 }
