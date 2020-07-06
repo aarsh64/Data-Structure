@@ -88,7 +88,7 @@ public class circularLinkedList {
 	last = addEmpty(last,5);
 	last = addBegin(last,1);
 	last = addEnd(last,3);
-	last = addAfter(last,7,3);
+	last = addAfter(last,7,1);
 	traverse(last);
 }
 

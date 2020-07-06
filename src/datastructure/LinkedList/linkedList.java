@@ -6,6 +6,7 @@ public class linkedList {
 	linkedList next = null;
 	int data;
 	
+	
 	public linkedList(int d){
 		this.data = d;
 	}
