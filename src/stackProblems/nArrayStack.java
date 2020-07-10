@@ -65,12 +65,12 @@ public class nArrayStack {
         } 
 		
 		public static void main(String[] args) {
-			 // Let us create 3 stacks in an array of size 10 
+			 // Let us create 3 stacks in an array of size 10  
 	        int k = 3, n = 10; 
 	          
 	        nArrayStack ks = new nArrayStack(k, n); 
 	  
-	        ks.push(15, 2); 
+	        ks.push(15, 2);
 	        ks.push(45, 2); 
 	  
 	        // Let us put some items in stack number 1 
