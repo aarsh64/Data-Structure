@@ -11,17 +11,18 @@ public class findingSpan2 {
 		Stack<Integer> st = new Stack<>();
 		
 		st.push(0);
+		
 		S[0] = 1;
 		
-		for(int i=0; i<n;i++) {
+		for(int i=1; i<n;i++) {
 			
-			while(!st.empty() && price[st.peek()] <price[i]) {
+			while(!st.empty() && price[st.peek()] < price[i]) 
 				st.pop();
 				
-				S[i] =(st.empty())?(i+1) : (i-st.peek());
+	            S[i] = (st.empty()) ? (i + 1) : (i - st.peek()); 
 				
 				st.push(i);
-			}
+			
 		}
 	}
 	
